@@ -30,8 +30,8 @@ endif
 # Compile flags
 #
 
-CFLAGS   = -I.              -O3 -DNDEBUG -std=c11   -fPIC
-CXXFLAGS = -I. -I./examples -O3 -DNDEBUG -std=c++11 -fPIC
+CFLAGS   = -I.              -Ofast -DNDEBUG -std=c11   -fPIC -march=native -funsafe-math-optimizations -fomit-frame-pointer
+CXXFLAGS = -I. -I./examples -Ofast -DNDEBUG -std=c++11 -fPIC -march=native -funsafe-math-optimizations -fomit-frame-pointer
 LDFLAGS  =
 
 # OS specific
