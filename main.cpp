@@ -24,7 +24,7 @@ static const std::map<int, int> LLAMA_N_PARTS = {
 struct llama_hparams
 {
     int32_t n_vocab = 32000;
-    int32_t n_ctx = 512; // this is provided as user input?
+    int32_t n_ctx = 2*512; // this is provided as user input?
     int32_t n_embd = 4096;
     int32_t n_mult = 256;
     int32_t n_head = 32;
@@ -929,7 +929,7 @@ int main(int argc, char **argv)
     {
         const int64_t t_start_us = ggml_time_us();
 
-        if (!llama_model_load(params.model, model, vocab, 512))
+        if (!llama_model_load(params.model, model, vocab, 2*512))
         { // TODO: set context from user input ??
             fprintf(stderr, "%s: failed to load model from '%s'\n", __func__, params.model.c_str());
             return 1;
